@@ -5,6 +5,14 @@ import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
 
 const projects = [
+    {
+    title: "GasoFlow",
+    description: "Real-time fuel price tracker and route optimizer. Helps drivers find the cheapest nearby stations and plan cost-efficient trips.",
+    tags: ["React"],
+    image: "/img/proyecto_gasoflow.png",
+    number: "04",
+    accent: "#f59e0b"
+  },
   {
     title: "Social Media Platform",
     description: "A minimalist social network with user authentication, post creation with images, likes, comments, and full profile management.",
@@ -12,6 +20,30 @@ const projects = [
     image: "/img/proyecto_red_social.png",
     number: "01",
     accent: "#3b82f6"
+  },
+  {
+    title: "Personal Wallet",
+    description: "Automated personal finance workflow built on n8n. Tracks expenses, generates smart monthly summaries, and sends digest reports automatically.",
+    tags: ["n8n", "Automation", "Google Sheets", "Telegram Bot"],
+    image: "/img/proyecto_personal_wallet.png",
+    number: "06",
+    accent: "#8b5cf6"
+  },
+    {
+    title: "JobFinder",
+    description: "An intelligent job offer aggregator that filters out scams using heuristic analysis. Only surfaces legitimate, quality opportunities.",
+    tags: ["n8n", "Automation", "Telegram Bot"],
+    image: "/img/proyecto_jobfinder.png",
+    number: "07",
+    accent: "#14b8a6"
+  },
+    {
+    title: "GeoSismo",
+    description: "Live seismic monitoring dashboard. Visualizes earthquake activity with interactive maps, magnitude filters, and alert notifications.",
+    tags: ["React"],
+    image: "/img/proyecto_geosismo.png",
+    number: "05",
+    accent: "#10b981"
   },
   {
     title: "Employee Management System",
@@ -29,45 +61,13 @@ const projects = [
     number: "03",
     accent: "#ec4899"
   },
-  {
-    title: "GasoFlow",
-    description: "Real-time fuel price tracker and route optimizer. Helps drivers find the cheapest nearby stations and plan cost-efficient trips.",
-    tags: ["React", "Node.js", "Maps API", "PostgreSQL"],
-    image: "/img/proyecto_gasoflow.png",
-    number: "04",
-    accent: "#f59e0b"
-  },
-  {
-    title: "GeoSismo",
-    description: "Live seismic monitoring dashboard. Visualizes earthquake activity with interactive maps, magnitude filters, and alert notifications.",
-    tags: ["Python", "FastAPI", "D3.js", "WebSockets"],
-    image: "/img/proyecto_geosismo.png",
-    number: "05",
-    accent: "#10b981"
-  },
-  {
-    title: "FinFlow — n8n Accounting",
-    description: "Automated personal finance workflow built on n8n. Tracks expenses, generates smart monthly summaries, and sends digest reports automatically.",
-    tags: ["n8n", "Automation", "Google Sheets", "Telegram Bot"],
-    image: "/img/proyecto_finflow.png",
-    number: "06",
-    accent: "#8b5cf6"
-  },
-  {
-    title: "JobSafe — Job Scout",
-    description: "An intelligent job offer aggregator that filters out scams using heuristic analysis. Only surfaces legitimate, quality opportunities.",
-    tags: ["n8n", "Automation", "Telegram Bot"],
-    image: "/img/proyecto_jobsafe.png",
-    number: "07",
-    accent: "#14b8a6"
-  }
 ];
 
 const skills = [
   "HTML/CSS", "Tailwind CSS", "JavaScript", "React", "Angular", "TypeScript",
   "PHP", "Symfony", "Java", "Spring Boot", "Node.js",
   "Astro", "Python", "SQL",
-  , "Git", "Docker", "Podman", "Artificial Intelligence"
+  "Git", "Docker", "Podman", "Artificial Intelligence"
 ];
 ---
 

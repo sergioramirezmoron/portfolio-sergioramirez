@@ -1,54 +1,261 @@
-<footer class="bg-gray-50 border-t border-gray-100 pt-16 pb-8">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-      
-      <div class="col-span-1">
-        <a href="/" class="text-xl font-bold tracking-tighter text-gray-900">
-          <span class="text-blue-600">Sergio Ramírez Morón</span>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+  .site-footer {
+    background: #0a0a0f;
+    border-top: 1px solid #1f2937;
+    padding: 5rem 2rem 2.5rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* ── TOP: brand + nav + social ── */
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid #111827;
+  }
+
+  @media (min-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  /* Brand col */
+  .footer-brand {}
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #f5f4f0;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    transition: opacity 0.2s;
+  }
+
+  .footer-logo:hover { opacity: 0.6; }
+
+  .footer-logo-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: #2563eb;
+    border-radius: 50%;
+    margin-left: 3px;
+    margin-bottom: 2px;
+    flex-shrink: 0;
+  }
+
+  .footer-tagline {
+    margin-top: 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: #374151;
+    font-weight: 300;
+    max-width: 280px;
+  }
+
+  /* Nav col */
+  .footer-col-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #374151;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .footer-nav-link {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #6b7280;
+    text-decoration: none;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #111827;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color 0.2s ease;
+  }
+
+  .footer-nav-link:last-child { border-bottom: none; }
+
+  .footer-nav-link svg {
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .footer-nav-link:hover {
+    color: #f5f4f0;
+  }
+
+  .footer-nav-link:hover svg {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Social col */
+  .footer-social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .footer-social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid #111827;
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 0.85rem;
+    font-weight: 400;
+    transition: color 0.2s ease;
+  }
+
+  .footer-social-link:last-child { border-bottom: none; }
+
+  .footer-social-link:hover { color: #f5f4f0; }
+
+  .footer-social-link svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+
+  .footer-social-link:hover svg { opacity: 1; }
+
+  /* ── BOTTOM ── */
+  .footer-bottom {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 640px) {
+    .footer-bottom {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: #374151;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+
+  .footer-copy span {
+    color: #2563eb;
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-legal a {
+    font-size: 0.72rem;
+    color: #374151;
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-legal a:hover { color: #6b7280; }
+
+  @media (max-width: 640px) {
+    .site-footer { padding: 4rem 1.25rem 2rem; }
+  }
+</style>
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Top grid -->
+    <div class="footer-top">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="#home" class="footer-logo" aria-label="Inicio">
+          SR<span class="footer-logo-dot"></span>
         </a>
-        <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-          Creating modern and responsive web applications to showcase my projects and skills.
+        <p class="footer-tagline">
+          Full Stack Developer building functional, scalable, and visually precise web applications.
         </p>
       </div>
 
-      <div class="col-span-1 md:text-center">
-        <h3 class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Navigation</h3>
-        <ul class="space-y-3">
-          <li><a href="/" class="text-gray-500 hover:text-blue-600 transition-colors duration-200">Home</a></li>
-          <li><a href="#about" class="text-gray-500 hover:text-blue-600 transition-colors duration-200">About</a></li>
-          <li><a href="#projects" class="text-gray-500 hover:text-blue-600 transition-colors duration-200">Projects</a></li>
-          <li><a href="#contact" class="text-gray-500 hover:text-blue-600 transition-colors duration-200">Contact</a></li>
-        </ul>
+      <!-- Nav -->
+      <div>
+        <p class="footer-col-label">Navigation</p>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#home"     class="footer-nav-link">Home     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="#about"    class="footer-nav-link">About    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="#projects" class="footer-nav-link">Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="#contact"  class="footer-nav-link">Contact  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </nav>
       </div>
 
-      <div class="col-span-1 md:text-right">
-        <h3 class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Follow me</h3>
-        <div class="flex md:justify-end space-x-4">
-          <a href="https://github.com/sergioramirezmoron" class="text-gray-400 hover:text-gray-900 transition-colors duration-200">
-            <span class="sr-only">GitHub</span>
-            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+      <!-- Social -->
+      <div>
+        <p class="footer-col-label">Follow me</p>
+        <div class="footer-social-links">
+
+          <a href="https://github.com/sergioramirezmoron" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
             </svg>
+            GitHub
           </a>
-          <a href="https://www.linkedin.com/in/sergio-ramírez-morón-550648357/" class="text-gray-400 hover:text-blue-700 transition-colors duration-200">
-            <span class="sr-only">LinkedIn</span>
-            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-               <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" />
+
+          <a href="https://www.linkedin.com/in/sergio-ramírez-morón-550648357/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/>
             </svg>
+            LinkedIn
           </a>
+
         </div>
       </div>
     </div>
 
-    <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-gray-400 text-sm">
-        &copy; 2026 Sergio Ramírez Morón. All rights reserved.
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        &copy; 2026 Sergio Ramírez Morón
       </p>
-      <div class="flex space-x-4 mt-4 md:mt-0">
-        <a href="/privacy" class="text-gray-400 text-sm hover:text-gray-600">Privacy</a>
-        <a href="/terms" class="text-gray-400 text-sm hover:text-gray-600">Terms</a>
-      </div>
     </div>
 
   </div>
