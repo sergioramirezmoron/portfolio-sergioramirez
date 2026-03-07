@@ -135,7 +135,7 @@ const skills = [
       right: -4rem;
       transform: translateY(-50%);
       font-family: 'Syne', sans-serif;
-      font-size: clamp(18rem, 35vw, 38rem);
+      font-size: clamp(8rem, 35vw, 38rem);
       font-weight: 800;
       color: transparent;
       -webkit-text-stroke: 1px #e0dfd9;
@@ -175,7 +175,7 @@ const skills = [
     }
 
     .hero-title {
-      font-size: clamp(3rem, 8vw, 8rem);
+      font-size: clamp(2.8rem, 8vw, 8rem);
       line-height: 0.95;
       letter-spacing: -0.04em;
       max-width: 900px;
@@ -309,7 +309,6 @@ const skills = [
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #4b5563;
       color: rgba(245,244,240,0.35);
     }
 
@@ -370,7 +369,7 @@ const skills = [
     }
 
     .about-heading {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-size: clamp(2rem, 5vw, 4.5rem);
       line-height: 1;
       margin-bottom: 2rem;
     }
@@ -442,6 +441,14 @@ const skills = [
       aspect-ratio: 4/5;
     }
 
+    /* On mobile, reduce the heavy aspect ratio so image isn't huge */
+    @media (max-width: 1023px) {
+      .about-img-frame {
+        aspect-ratio: 16/9;
+        max-height: 340px;
+      }
+    }
+
     .about-img-frame::before {
       content: '';
       position: absolute;
@@ -501,7 +508,7 @@ const skills = [
     }
 
     .projects-heading {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-size: clamp(2rem, 5vw, 4.5rem);
       color: var(--paper);
       line-height: 1;
     }
@@ -553,6 +560,13 @@ const skills = [
       overflow: hidden;
       transition: background 0.3s ease;
       cursor: default;
+    }
+
+    /* Tighter padding on small screens */
+    @media (max-width: 479px) {
+      .project-card {
+        padding: 1.5rem 1.25rem;
+      }
     }
 
     .project-card::before {
@@ -646,7 +660,7 @@ const skills = [
     }
 
     .contact-heading {
-      font-size: clamp(3rem, 7vw, 6.5rem);
+      font-size: clamp(2.5rem, 7vw, 6.5rem);
       line-height: 0.95;
       letter-spacing: -0.04em;
       margin-bottom: 2rem;
@@ -672,12 +686,27 @@ const skills = [
       margin-bottom: 3.5rem;
     }
 
+    /* Full-width buttons on very small screens */
+    @media (max-width: 400px) {
+      .contact-actions {
+        flex-direction: column;
+      }
+      .contact-actions .btn-primary,
+      .contact-actions .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
     .contact-email-block {
       display: inline-block;
       padding: 1.25rem 2rem;
       background: #f9f8f4;
       border: 1px solid var(--border);
       border-radius: 3px;
+      /* Prevent overflow on tiny screens */
+      max-width: 100%;
+      word-break: break-all;
     }
 
     .contact-email-block p:first-child {
@@ -717,12 +746,119 @@ const skills = [
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      .hero { padding: 6rem 1.25rem 2.5rem; }
-      .section { padding: 5rem 1.25rem; }
-      .projects-section { padding: 5rem 1.25rem; }
-      .contact-section { padding: 5rem 1.25rem; }
-      .about-img-deco, .about-img-deco2 { display: none; }
-      .projects-header { flex-direction: column; align-items: flex-start; }
+      .hero {
+        padding: 6rem 1.25rem 2.5rem;
+        /* Ensure scroll hint is visible */
+        min-height: 100svh;
+      }
+
+      .hero-inner {
+        gap: 1.75rem;
+      }
+
+      .hero-desc {
+        font-size: 1rem;
+      }
+
+      .section {
+        padding: 5rem 1.25rem;
+      }
+
+      .projects-section {
+        padding: 5rem 1.25rem;
+      }
+
+      .projects-header {
+        margin-bottom: 2.5rem;
+      }
+
+      .contact-section {
+        padding: 5rem 1.25rem;
+      }
+
+      .contact-sub {
+        font-size: 1rem;
+      }
+
+      .about-img-deco,
+      .about-img-deco2 {
+        display: none;
+      }
+
+      .projects-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* ── TABLET (641px – 1023px) ── */
+    @media (min-width: 641px) and (max-width: 1023px) {
+      .hero {
+        padding: 6.5rem 2.5rem 3rem;
+      }
+
+      .section {
+        padding: 6rem 2.5rem;
+      }
+
+      .projects-section {
+        padding: 6rem 2.5rem;
+      }
+
+      .contact-section {
+        padding: 6rem 2.5rem;
+      }
+
+      /* Image takes reasonable space before two-col layout kicks in */
+      .about-img-frame {
+        max-height: 420px;
+      }
+
+      .about-img-deco,
+      .about-img-deco2 {
+        display: none;
+      }
+    }
+
+    /* ── EXTRA SMALL (< 400px) ── */
+    @media (max-width: 400px) {
+      .hero {
+        padding: 5.5rem 1rem 2rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.4rem, 12vw, 3rem);
+      }
+
+      .hero-desc {
+        font-size: 0.95rem;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.82rem;
+      }
+
+      .section {
+        padding: 4rem 1rem;
+      }
+
+      .projects-section {
+        padding: 4rem 1rem;
+      }
+
+      .contact-section {
+        padding: 4rem 1rem;
+      }
+
+      .contact-email-block {
+        padding: 1rem 1.25rem;
+      }
+
+      .contact-email-block p:last-child {
+        font-size: 0.85rem;
+      }
     }
   </style>
 
