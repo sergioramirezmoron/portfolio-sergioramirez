@@ -766,7 +766,7 @@ const skills = [
     <div class="marquee-wrapper" aria-hidden="true">
       <div class="marquee-track">
         {[...Array(2)].map(() => (
-          ["React", "TypeScript", "Node.js", "Python", "PHP", "Symfony", "Docker", "MySQL", "PostgreSQL", "Java", "Astro", "Spring Boot", "n8n", "AI / ML"].map((item) => (
+          skills.map((item) => (
             <div class="marquee-item">
               <span>·</span>
               {item}
